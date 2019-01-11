@@ -1,7 +1,17 @@
 import React, { Component } from 'react';
 import Dice from './Dice';
 import ScoreTable from './ScoreTable';
-import './Game.css';
+import styled from 'styled-components';
+
+const GameWrapper = styled.button`
+  margin-top: 1em;
+  font-size: 1.5em;
+  border-radius: 0.2em;
+
+  &:hover {
+    background-color: pink;
+  }
+`;
 
 const NUM_DICE = 5;
 const NUM_ROLLS = 3;
@@ -10,9 +20,11 @@ class Game extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      dice: Array.from({ length: NUM_DICE }),
+      dice: Array.from({ length: NUM_DICE }).map(d =>
+        Math.ceil(Math.random() * 6)
+      ),
       locked: Array(NUM_DICE).fill(false),
-      rollsLeft: NUM_ROLLS,
+      rollsLeft: NUM_ROLLS - 1,
       scores: {
         ones: undefined,
         twos: undefined,
@@ -76,13 +88,13 @@ class Game extends Component {
           locked={this.state.locked}
           handleClick={this.toggleLocked}
         />
-        <button
+        <GameWrapper
           className="Game-reroll"
           disabled={this.state.locked.every(x => x)}
           onClick={this.roll}
         >
           {this.state.rollsLeft} Rerolls Left
-        </button>
+        </GameWrapper>
         <ScoreTable doScore={this.doScore} scores={this.state.scores} />
       </section>
     );

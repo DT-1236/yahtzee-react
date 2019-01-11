@@ -5,11 +5,12 @@ exports[`simple snapshots matches the shallow snapshot 1`] = `
   <Dice
     dice={
       Array [
-        undefined,
-        undefined,
-        undefined,
-        undefined,
-        undefined,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
       ]
     }
     handleClick={[Function]}
@@ -28,7 +29,7 @@ exports[`simple snapshots matches the shallow snapshot 1`] = `
     disabled={false}
     onClick={[Function]}
   >
-    3
+    2
      Rerolls Left
   </button>
   <ScoreTable

@@ -1,12 +1,12 @@
 .Die {
-  font-size: 25px;
+  /* font-size: 25px;
   display: inline-block;
   padding: 0.5em 0.8em;
   font-family: monospace;
   font-weight: bold;
   background-color: red;
   color: white;
-  margin-right: 1em;
+  margin-right: 1em; */
 }
 
 .Die-locked {

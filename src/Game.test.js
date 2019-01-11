@@ -17,6 +17,7 @@ describe('simple smoke tests', () => {
 describe('simple snapshots', () => {
   it('matches the shallow snapshot', () => {
     const wrapper = shallow(<Game />);
+    wrapper.setState({ dice: [1, 1, 1, 1, 1, 1] });
     const serialized = toJson(wrapper);
     expect(serialized).toMatchSnapshot();
   });
@@ -30,6 +31,12 @@ describe('functional testing', () => {
     die.simulate('click');
     die = wrapper.find(Die).at(0);
     expect(die.props()).toHaveProperty('locked', true);
+  });
+
+  it('starts with dice already rolled', () => {
+    const wrapper = mount(<Game />);
+    let die = wrapper.find(Die).at(0);
+    expect(die.props()).not.toHaveProperty('val', undefined);
   });
 });
 
