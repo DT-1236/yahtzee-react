@@ -3,6 +3,7 @@ import { shallow, mount } from 'enzyme';
 import toJson from 'enzyme-to-json';
 import Game from './Game';
 import Die from './Die';
+import { largeStraight } from './Rules';
 
 describe('simple smoke tests', () => {
   it('renders without crashing', () => {
@@ -46,25 +47,25 @@ describe('rerolling tests', () => {
   beforeEach(() => {
     // Initialize game with dice
     wrapper = mount(<Game />);
-    reroll = wrapper.find('.Game-reroll');
-    reroll.simulate('click');
+    reroll = wrapper.find('button.Game-reroll');
+    // reroll.simulate('click');
   });
 
   it('should lock all dice after the second reroll', () => {
-    expect(wrapper.find('.Die-locked')).toHaveLength(0);
+    expect(wrapper.find('button.Die-locked')).toHaveLength(0);
     reroll.simulate('click');
     reroll.simulate('click');
-    expect(wrapper.find('.Die-locked')).toHaveLength(5);
+    expect(wrapper.find('button.Die-locked')).toHaveLength(5);
   });
 
   it('should disallow rerolls past the second even if dice have been unlocked', () => {
     reroll.simulate('click');
     reroll.simulate('click');
-    const locked = wrapper.find('.Die-locked');
+    const locked = wrapper.find('button.Die-locked');
     locked.at(0).simulate('click');
     locked.at(1).simulate('click');
     locked.at(2).simulate('click');
-    expect(wrapper.find('.Die-locked')).toHaveLength(2);
+    expect(wrapper.find('button.Die-locked')).toHaveLength(2);
     const previous = wrapper.state().dice;
     reroll.simulate('click');
     expect(wrapper.state().dice).toEqual(previous);

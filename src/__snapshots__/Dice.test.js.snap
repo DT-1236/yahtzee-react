@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`simple snapshots matches the shallow snapshot 1`] = `
-<div
+<styled.div
   className="Dice"
 >
   <Die
@@ -25,5 +25,5 @@ exports[`simple snapshots matches the shallow snapshot 1`] = `
     locked={false}
     val={1}
   />
-</div>
+</styled.div>
 `;

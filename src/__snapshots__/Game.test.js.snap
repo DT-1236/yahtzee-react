@@ -24,14 +24,14 @@ exports[`simple snapshots matches the shallow snapshot 1`] = `
       ]
     }
   />
-  <button
+  <styled.button
     className="Game-reroll"
     disabled={false}
     onClick={[Function]}
   >
     2
      Rerolls Left
-  </button>
+  </styled.button>
   <ScoreTable
     doScore={[Function]}
     scores={
