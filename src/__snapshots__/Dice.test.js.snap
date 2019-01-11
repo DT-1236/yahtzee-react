@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`simple snapshots matches the shallow snapshot 1`] = `
+<div
+  className="Dice"
+>
+  <Die
+    handleClick={[Function]}
+    idx={0}
+    key="0"
+    locked={false}
+    val={1}
+  />
+  <Die
+    handleClick={[Function]}
+    idx={1}
+    key="1"
+    locked={true}
+    val={1}
+  />
+  <Die
+    handleClick={[Function]}
+    idx={2}
+    key="2"
+    locked={false}
+    val={1}
+  />
+</div>
+`;

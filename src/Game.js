@@ -31,16 +31,20 @@ class Game extends Component {
     };
     this.roll = this.roll.bind(this);
     this.doScore = this.doScore.bind(this);
+    this.toggleLocked = this.toggleLocked.bind(this);
   }
 
   roll(evt) {
     // roll dice whose indexes are in reroll
-    this.setState(st => ({
-      dice: st.dice.map(
-        (d, i) => st.locked[i] ? d : Math.ceil(Math.random() * 6)),
-      locked: st.rollsLeft > 1 ? st.locked : Array(NUM_DICE).fill(true),
-      rollsLeft: st.rollsLeft - 1,
-    }));
+    if (this.state.rollsLeft > 0) {
+      this.setState(st => ({
+        dice: st.dice.map((d, i) =>
+          st.locked[i] ? d : Math.ceil(Math.random() * 6)
+        ),
+        locked: st.rollsLeft > 1 ? st.locked : Array(NUM_DICE).fill(true),
+        rollsLeft: st.rollsLeft - 1
+      }));
+    }
   }
 
   toggleLocked(idx) {
@@ -50,8 +54,8 @@ class Game extends Component {
         ...st.locked.slice(0, idx),
         !st.locked[idx],
         ...st.locked.slice(idx + 1)
-      ],
-    }))
+      ]
+    }));
   }
 
   doScore(rulename, ruleFn) {
@@ -59,7 +63,7 @@ class Game extends Component {
     this.setState(st => ({
       scores: { ...st.scores, [rulename]: ruleFn(this.state.dice) },
       rollsLeft: NUM_ROLLS,
-      locked: Array(NUM_DICE).fill(false),
+      locked: Array(NUM_DICE).fill(false)
     }));
     this.roll();
   }
@@ -67,15 +71,20 @@ class Game extends Component {
   render() {
     return (
       <section>
-        <Dice dice={this.state.dice} locked={this.state.locked} handleClick={this.toggleLocked} />
+        <Dice
+          dice={this.state.dice}
+          locked={this.state.locked}
+          handleClick={this.toggleLocked}
+        />
         <button
           className="Game-reroll"
           disabled={this.state.locked.every(x => x)}
-          onClick={this.roll}>
+          onClick={this.roll}
+        >
           {this.state.rollsLeft} Rerolls Left
         </button>
         <ScoreTable doScore={this.doScore} scores={this.state.scores} />
-      </section >
+      </section>
     );
   }
 }

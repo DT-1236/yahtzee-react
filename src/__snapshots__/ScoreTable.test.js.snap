@@ -1,0 +1,86 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`simple snapshots matches the shallow snapshot 1`] = `
+<div
+  className="ScoreTable"
+>
+  <section
+    className="ScoreTable-section"
+  >
+    <h2>
+      Upper
+    </h2>
+    <table
+      cellSpacing="0"
+    >
+      <tbody>
+        <RuleRow
+          doScore={[Function]}
+          name="Ones"
+        />
+        <RuleRow
+          doScore={[Function]}
+          name="Twos"
+        />
+        <RuleRow
+          doScore={[Function]}
+          name="Threes"
+        />
+        <RuleRow
+          doScore={[Function]}
+          name="Fours"
+        />
+        <RuleRow
+          doScore={[Function]}
+          name="Fives"
+        />
+        <RuleRow
+          doScore={[Function]}
+          name="Sixes"
+        />
+      </tbody>
+    </table>
+  </section>
+  <section
+    className="ScoreTable-section ScoreTable-section-lower"
+  >
+    <h2>
+      Lower
+    </h2>
+    <table
+      cellSpacing="0"
+    >
+      <tbody>
+        <RuleRow
+          doScore={[Function]}
+          name="Three of Kind"
+        />
+        <RuleRow
+          doScore={[Function]}
+          name="Four of Kind"
+        />
+        <RuleRow
+          doScore={[Function]}
+          name="Full House"
+        />
+        <RuleRow
+          doScore={[Function]}
+          name="Small Straight"
+        />
+        <RuleRow
+          doScore={[Function]}
+          name="Large Straight"
+        />
+        <RuleRow
+          doScore={[Function]}
+          name="Yahtzee"
+        />
+        <RuleRow
+          doScore={[Function]}
+          name="Chance"
+        />
+      </tbody>
+    </table>
+  </section>
+</div>
+`;

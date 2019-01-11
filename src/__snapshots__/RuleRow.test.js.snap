@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`simple snapshots matches the shallow snapshot 1`] = `
+<table>
+  <tbody>
+    <RuleRow />
+  </tbody>
+</table>
+`;
